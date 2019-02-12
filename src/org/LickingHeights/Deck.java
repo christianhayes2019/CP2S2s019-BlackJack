@@ -1,6 +1,8 @@
 package org.LickingHeights;
 
 
+import java.util.Random;
+
 public class Deck {
 
     String[] Suits = {"Hearts","Diamonds","Spades","Clubs"};
@@ -35,6 +37,27 @@ public class Deck {
 
 
     }
+
+
+
+    public static void shuffle(int card[],int n){
+
+        Random rand = new Random();
+
+        for (int i=0; i < n; i++){
+            int r = i + rand.nextInt(52-i);
+            int temp = card[r];
+            card[r] = card[i];
+            card[i] = temp;
+
+            
+        }
+    }
+
+
+
+
+
 
     public void printDeck(){
         for(Card card: deck){
