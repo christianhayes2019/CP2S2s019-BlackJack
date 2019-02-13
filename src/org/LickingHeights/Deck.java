@@ -1,6 +1,8 @@
 package org.LickingHeights;
 
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 public class Deck {
@@ -12,10 +14,15 @@ public class Deck {
     private Card[] deck;
 
 
+    private int cardsUsed;
+
+
 
     public Deck() {
         deck = new Card[52];
         buildDeck();
+        shuffle();
+
 
     }
 
@@ -40,17 +47,12 @@ public class Deck {
 
 
 
-    public static void shuffle(int card[],int n){
-
-        Random rand = new Random();
-
-        for (int i=0; i < n; i++){
-            int r = i + rand.nextInt(52-i);
-            int temp = card[r];
-            card[r] = card[i];
-            card[i] = temp;
-
-            
+    public void shuffle() {
+        for ( int i = deck.length-1; i > 0; i-- ) {
+            int rand = (int) (Math.random() * (i + 1));
+            Card temp = deck[i];
+            deck[i] = deck[rand];
+            deck[rand] = temp;
         }
     }
 
