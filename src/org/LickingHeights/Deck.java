@@ -40,6 +40,7 @@ public class Deck {
             if(i%13>=10){
                 deck[i].setValue(10);
             }
+            cardsUsed = 0;
         }
 
 
@@ -54,12 +55,19 @@ public class Deck {
             deck[i] = deck[rand];
             deck[rand] = temp;
         }
+        cardsUsed = 0;
     }
 
+    public int cardsLeft() {
+        return deck.length - cardsUsed;
+    }
 
-
-
-
+    public Card dealCard(){
+        if (cardsUsed == deck.length)
+            throw new IllegalStateException("No cards are left in the deck.");
+        cardsUsed++;
+        return deck[cardsUsed - 1];
+    }
 
     public void printDeck(){
         for(Card card: deck){
