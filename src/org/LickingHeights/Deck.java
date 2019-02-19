@@ -1,10 +1,6 @@
 package org.LickingHeights;
 
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
-
 public class Deck {
 
     String[] Suits = {"Hearts","Diamonds","Spades","Clubs"};
@@ -46,6 +42,11 @@ public class Deck {
 
     }
 
+    public void reshuffle(){
+        buildDeck();
+        shuffle();
+    }
+
 
 
     public void shuffle() {
@@ -63,11 +64,16 @@ public class Deck {
     }
 
     public Card dealCard(){
-        if (cardsUsed == deck.length)
-            throw new IllegalStateException("No cards are left in the deck.");
+        if (cardsUsed == deck.length-1) {
+            reshuffle();
+
+        }
         cardsUsed++;
-        return deck[cardsUsed - 1];
+        Card card = deck[cardsUsed-1];
+        deck[cardsUsed-1] = null;
+        return card;
     }
+
 
     public void printDeck(){
         for(Card card: deck){

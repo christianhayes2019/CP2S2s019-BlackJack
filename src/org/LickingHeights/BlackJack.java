@@ -5,7 +5,11 @@ public class BlackJack {
 
     public BlackJack() {
         deck = new Deck();
-        displayDeck();
+        for(int i=0; i<53;i++) {
+            displayDeck();
+            System.out.println( "\n\n"+   deck.dealCard() );
+        }
+
     }
 
     public void displayDeck(){
