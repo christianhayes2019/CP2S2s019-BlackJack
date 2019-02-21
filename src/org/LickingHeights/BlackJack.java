@@ -12,6 +12,11 @@ public class BlackJack {
         init(4);
         //displayDeck();
 
+        for(int i=0; i<53;i++) {
+            displayDeck();
+            System.out.println( "\n\n"+   deck.dealCard() );
+        }
+
     }
 
     private void init (int numOfPlayers){

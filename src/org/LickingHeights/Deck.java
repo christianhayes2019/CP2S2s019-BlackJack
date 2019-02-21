@@ -12,9 +12,15 @@ public class Deck {
     private Card[] deck;
 
 
+    private int cardsUsed;
+
+
+
     public Deck() {
         deck = new Card[52];
         buildDeck();
+        shuffle();
+
 
     }
 
@@ -32,13 +38,47 @@ public class Deck {
             if (i % 13 >= 11) {
                 deck[i].setValue(10);
             }
+            cardsUsed = 0;
         }
 
 
     }
 
-    public void printDeck() {
-        for (Card card : deck) {
+    public void reshuffle(){
+        buildDeck();
+        shuffle();
+    }
+
+
+
+    public void shuffle() {
+        for ( int i = deck.length-1; i > 0; i-- ) {
+            int rand = (int) (Math.random() * (i + 1));
+            Card temp = deck[i];
+            deck[i] = deck[rand];
+            deck[rand] = temp;
+        }
+        cardsUsed = 0;
+    }
+
+    public int cardsLeft() {
+        return deck.length - cardsUsed;
+    }
+
+    public Card dealCard(){
+        if (cardsUsed == deck.length-1) {
+            reshuffle();
+
+        }
+        cardsUsed++;
+        Card card = deck[cardsUsed-1];
+        deck[cardsUsed-1] = null;
+        return card;
+    }
+
+
+    public void printDeck(){
+        for(Card card: deck){
             System.out.println(card);
         }
     }
