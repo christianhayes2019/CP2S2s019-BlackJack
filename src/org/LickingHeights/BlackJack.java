@@ -51,7 +51,7 @@ public class BlackJack {
         players.remove(player);
     }
     public Card dealCard(){
-        return deck.dealOneCard();
+        return deck.dealCard();
     }
 }
 
