@@ -58,4 +58,12 @@ public class Player {
         hand.discardCards();
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "amount=" + amount +
+                '}';
+                ", name='" + name + '\'' +
+
+    }
 }
