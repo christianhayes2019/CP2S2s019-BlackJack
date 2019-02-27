@@ -16,10 +16,13 @@ public class Deck {
 
 
 
+
     public Deck() {
         deck = new Card[52];
         buildDeck();
         shuffle();
+
+
 
 
     }
