@@ -21,7 +21,7 @@ public class BlackJack {
     }
 
     private void init (int numOfPlayers){
-        //createPlayers(numOfPlayers);
+        createPlayers(numOfPlayers);
 
         for(int i=0; i< 100; i++){
             dealCard();
@@ -45,6 +45,8 @@ public class BlackJack {
     private void createPlayers(int numOfPlayers){
         for(int i = 0; i<numOfPlayers; i++){
             //creating default player
+
+            players.add(new Player("player " + i, 300+(0*i)));
         }
     }
     public void removePlayer (Player player){
@@ -53,6 +55,6 @@ public class BlackJack {
     public Card dealCard(){
         return deck.dealCard();
     }
-            players.add(new Player(300+(0*i), "player " + i));
+
 }
 

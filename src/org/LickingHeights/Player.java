@@ -61,9 +61,9 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "amount=" + amount +
-                '}';
-                ", name='" + name + '\'' +
+                "amount=" + money +
+                '}'+
+                ", name='" + name + '\'';
 
     }
 }

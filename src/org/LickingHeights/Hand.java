@@ -3,18 +3,18 @@ package org.LickingHeights;
 import java.util.ArrayList;
 
 public class Hand {
-    private ArrayList<Card> hand;
+    private ArrayList<Card> playerHand;
 
 
     public Hand(){
-      hand = new ArrayList<>();
+      playerHand = new ArrayList<>();
     }
 
     public void addCard(Card card){
-        hand.add(card);
+        playerHand.add(card);
     }
 
     public void discardCards(){
-        hand.clear();
+        playerHand.clear();
     }
 }
